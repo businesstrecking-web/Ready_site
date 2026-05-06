@@ -7,6 +7,7 @@
     "dev": "WRANGLER_LOG_PATH=.wrangler/logs vite dev",
     "build": "WRANGLER_LOG_PATH=.wrangler/logs vite build",
     "build:dev": "WRANGLER_LOG_PATH=.wrangler/logs vite build --mode development",
+    "build:gh-pages": "vite build --config vite.github-pages.config.ts && cp docs/index.html docs/404.html && touch docs/.nojekyll",
     "preview": "WRANGLER_LOG_PATH=.wrangler/logs vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
