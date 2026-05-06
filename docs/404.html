@@ -19,5 +19,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (() => {
+        const isGitHubPages = window.location.hostname.endsWith("github.io");
+        const usesRawViteEntry = Array.from(document.scripts).some((script) =>
+          script.src.includes("/src/main.github-pages.tsx"),
+        );
+
+        if (isGitHubPages && usesRawViteEntry && !window.location.pathname.includes("/docs/")) {
+          const basePath = window.location.pathname.endsWith("/")
+            ? window.location.pathname
+            : window.location.pathname.replace(/\/[^/]*$/, "/");
+
+          window.location.replace(`${basePath}docs/${window.location.search}${window.location.hash}`);
+        }
+      })();
+    </script>
   </body>
 </html>
