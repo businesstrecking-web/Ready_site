@@ -1,9 +1,6 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -41,34 +38,11 @@ export const Route = createRootRoute({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "ru_RU" },
     ],
-    links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap",
-      },
-    ],
+    links: [],
   }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="ru">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   return (
