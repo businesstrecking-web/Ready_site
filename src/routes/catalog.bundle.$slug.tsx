@@ -14,9 +14,9 @@ export const Route = createFileRoute("/catalog/bundle/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.bundle.title} — набор решений | Сборка` },
+          { title: `${loaderData.bundle.title} — набор решений | readyHub` },
           { name: "description", content: loaderData.bundle.outcome },
-          { property: "og:title", content: `${loaderData.bundle.title} — Сборка` },
+          { property: "og:title", content: `${loaderData.bundle.title} — readyHub` },
           { property: "og:description", content: loaderData.bundle.outcome },
         ]
       : [],

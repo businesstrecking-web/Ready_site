@@ -4,10 +4,10 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Политика конфиденциальности — Сборка" },
+      { title: "Политика конфиденциальности — readyHub" },
       {
         name: "description",
-        content: "Как мы обрабатываем персональные данные на платформе Сборка.",
+        content: "Как мы обрабатываем персональные данные на платформе readyHub.",
       },
     ],
   }),
@@ -21,7 +21,7 @@ function PrivacyPage() {
       <article className="container-page py-16">
         <div className="mx-auto max-w-3xl space-y-6 text-base leading-relaxed text-foreground/85">
           <p>
-            Настоящая политика описывает, как платформа «Сборка» собирает, хранит и использует
+            Настоящая политика описывает, как платформа «readyHub» собирает, хранит и использует
             персональные данные пользователей.
           </p>
           <h2 className="text-2xl font-bold">1. Какие данные мы собираем</h2>
@@ -38,10 +38,10 @@ function PrivacyPage() {
           <p>Данные хранятся на защищённых серверах. Доступ имеет ограниченный круг сотрудников.</p>
           <h2 className="text-2xl font-bold">4. Ваши права</h2>
           <p>
-            Вы можете запросить удаление или изменение своих данных, написав на hello@sborka.ru.
+            Вы можете запросить удаление или изменение своих данных, написав на hello@readyhub.ru.
           </p>
           <h2 className="text-2xl font-bold">5. Контакты</h2>
-          <p>По вопросам обработки данных: hello@sborka.ru.</p>
+          <p>По вопросам обработки данных: hello@readyhub.ru.</p>
         </div>
       </article>
     </>

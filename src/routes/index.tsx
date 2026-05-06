@@ -17,13 +17,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Сборка — платформа готовых решений для бизнеса" },
+      { title: "readyHub — платформа готовых решений для бизнеса" },
       {
         name: "description",
         content:
           "Готовые решения для бизнеса в одном месте: отдельные инструменты и комплексные наборы под задачи компании.",
       },
-      { property: "og:title", content: "Сборка — платформа готовых решений для бизнеса" },
+      { property: "og:title", content: "readyHub — платформа готовых решений для бизнеса" },
       {
         property: "og:description",
         content:

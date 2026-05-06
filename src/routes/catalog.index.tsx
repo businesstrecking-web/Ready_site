@@ -11,13 +11,13 @@ import type { Stage } from "@/data/types";
 export const Route = createFileRoute("/catalog/")({
   head: () => ({
     meta: [
-      { title: "Каталог решений — Сборка" },
+      { title: "Каталог решений — readyHub" },
       {
         name: "description",
         content:
           "Каталог отдельных решений и готовых наборов для бизнеса. Фильтры по направлению, задаче и стадии компании.",
       },
-      { property: "og:title", content: "Каталог решений — Сборка" },
+      { property: "og:title", content: "Каталог решений — readyHub" },
       {
         property: "og:description",
         content: "Подберите решения и наборы под задачи бизнеса в одном пространстве.",
@@ -124,8 +124,10 @@ function CatalogPage() {
                   setCat(scenario.categorySlug);
                   setView("all");
                 }}
-                className={`card-soft card-static p-5 text-left transition-colors hover:border-primary ${
-                  cat === scenario.categorySlug ? "border-primary bg-primary/5" : ""
+                className={`scenario-button card-soft card-static p-5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 ${
+                  cat === scenario.categorySlug
+                    ? "scenario-button-active border-primary bg-primary/5 text-foreground"
+                    : ""
                 }`}
               >
                 <div className="font-semibold">{scenario.title}</div>
@@ -170,7 +172,7 @@ function CatalogPage() {
                   <button
                     key={v}
                     onClick={() => setView(v)}
-                    className={`rounded-md px-4 py-2 transition-colors ${view === v ? "bg-foreground text-background" : "text-muted-foreground"}`}
+                    className={`rounded-md px-4 py-2 transition-colors ${view === v ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground"}`}
                   >
                     {v === "all" ? "Все" : v === "solutions" ? "Решения" : "Наборы"}
                   </button>

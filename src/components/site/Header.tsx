@@ -31,10 +31,10 @@ export function Header() {
     >
       <div className="container-page flex h-16 items-center justify-between gap-6">
         <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            С
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-foreground">
+            rH
           </span>
-          <span>Сборка</span>
+          <span>readyHub</span>
         </Link>
 
         <nav className="hidden items-center gap-7 md:flex">

@@ -7,12 +7,12 @@ import { PageHero } from "@/components/site/PageHero";
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
-      { title: "Контакты — Сборка" },
+      { title: "Контакты — readyHub" },
       {
         name: "description",
         content: "Оставьте заявку — соберём подходящие решения под задачи бизнеса.",
       },
-      { property: "og:title", content: "Контакты — Сборка" },
+      { property: "og:title", content: "Контакты — readyHub" },
       {
         property: "og:description",
         content: "Свяжитесь с командой платформы готовых решений для бизнеса.",
@@ -148,16 +148,16 @@ function ContactsPage() {
 
           <div className="space-y-4">
             <ContactRow
-              href="https://t.me/sborka"
+              href="https://t.me/readyhub"
               icon={<MessageCircle className="h-5 w-5" />}
               title="Telegram"
-              value="@sborka"
+              value="@readyhub"
             />
             <ContactRow
-              href="mailto:hello@sborka.ru"
+              href="mailto:hello@readyhub.ru"
               icon={<Mail className="h-5 w-5" />}
               title="Email"
-              value="hello@sborka.ru"
+              value="hello@readyhub.ru"
             />
             <ContactRow
               icon={<Clock className="h-5 w-5" />}

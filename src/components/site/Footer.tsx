@@ -6,10 +6,10 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-2 font-display text-lg font-bold">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              С
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-foreground">
+              rH
             </span>
-            Сборка
+            readyHub
           </div>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             Платформа готовых решений для бизнеса. Отдельные инструменты и комплексные наборы под
@@ -46,8 +46,8 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Контакты</h4>
           <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-            <li>Telegram: @sborka</li>
-            <li>Email: hello@sborka.ru</li>
+            <li>Telegram: @readyhub</li>
+            <li>Email: hello@readyhub.ru</li>
             <li>Пн–Пт, 10:00–19:00</li>
           </ul>
         </div>
@@ -71,7 +71,7 @@ export function Footer() {
 
       <div className="hairline-t">
         <div className="container-page flex flex-col items-start justify-between gap-2 py-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <span>© 2026 Сборка. Все права защищены.</span>
+          <span>© 2026 readyHub. Все права защищены.</span>
           <span>Платформа готовых решений для бизнеса</span>
         </div>
       </div>

@@ -8,12 +8,12 @@ import { cases, categories } from "@/data/content";
 export const Route = createFileRoute("/cases")({
   head: () => ({
     meta: [
-      { title: "Кейсы — Сборка" },
+      { title: "Кейсы — readyHub" },
       {
         name: "description",
         content: "Реальные результаты внедрения готовых решений в бизнесах разного масштаба.",
       },
-      { property: "og:title", content: "Кейсы — Сборка" },
+      { property: "og:title", content: "Кейсы — readyHub" },
       {
         property: "og:description",
         content: "Что получают компании после внедрения решений из платформы.",

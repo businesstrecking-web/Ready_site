@@ -29,7 +29,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Сборка — платформа готовых решений для бизнеса" },
+      { title: "readyHub — платформа готовых решений для бизнеса" },
       {
         name: "description",
         content:

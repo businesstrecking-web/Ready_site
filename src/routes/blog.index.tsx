@@ -6,12 +6,12 @@ import { articles } from "@/data/content";
 export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
-      { title: "База знаний — Сборка" },
+      { title: "База знаний — readyHub" },
       {
         name: "description",
         content: "Статьи, инструкции, шаблоны и методологии для систематизации и роста бизнеса.",
       },
-      { property: "og:title", content: "База знаний — Сборка" },
+      { property: "og:title", content: "База знаний — readyHub" },
       {
         property: "og:description",
         content: "Практические материалы для собственников и руководителей.",

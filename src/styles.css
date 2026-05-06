@@ -108,6 +108,15 @@
     font-feature-settings: "ss01", "cv11";
   }
 
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
   h1,
   h2,
   h3,
@@ -150,6 +159,12 @@
     transform: none;
     box-shadow: none;
     border-color: var(--hairline);
+  }
+
+  .scenario-button:hover,
+  .scenario-button-active {
+    background: oklch(0.52 0.21 264 / 6%);
+    border-color: var(--primary);
   }
 
   .surface-dark {
