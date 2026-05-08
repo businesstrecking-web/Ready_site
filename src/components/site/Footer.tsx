@@ -5,11 +5,11 @@ export function Footer() {
     <footer className="hairline-t mt-24 bg-muted/40">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 font-display text-lg font-bold">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-xs font-bold text-primary-foreground">
-              rH
+          <div className="flex items-center gap-1 font-display text-lg font-bold">
+            <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-sm font-extrabold text-primary-foreground">
+              R
             </span>
-            readyHub
+            eadyHub
           </div>
           <p className="mt-3 max-w-xs text-sm text-muted-foreground">
             Платформа готовых решений для бизнеса. Отдельные инструменты и комплексные наборы под
