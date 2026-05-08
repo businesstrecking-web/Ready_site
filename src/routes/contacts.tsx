@@ -4,6 +4,9 @@ import { useState } from "react";
 import { Send, Mail, MessageCircle, Clock, Briefcase } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined;
+
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
@@ -24,6 +27,63 @@ export const Route = createFileRoute("/contacts")({
 
 function ContactsPage() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+
+  const submitContact = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
+
+    if (!supabaseUrl || !supabaseAnonKey) {
+      setError("Форма почти готова. Нужно подключить Supabase-проект.");
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = {
+      name: String(formData.get("name") ?? "").trim(),
+      contact: String(formData.get("contact") ?? "").trim(),
+      business: String(formData.get("business") ?? "").trim(),
+      stage: String(formData.get("stage") ?? "").trim(),
+      team_size: String(formData.get("team") ?? "").trim(),
+      task: String(formData.get("task") ?? "").trim(),
+      tried: String(formData.get("tried") ?? "").trim(),
+      deadline: String(formData.get("deadline") ?? "").trim(),
+      comment: String(formData.get("comment") ?? "").trim(),
+      source_page: window.location.href,
+    };
+
+    if (!payload.name || !payload.contact) {
+      setError("Заполните имя и телефон или Telegram.");
+      return;
+    }
+
+    setSending(true);
+
+    try {
+      const response = await fetch(`${supabaseUrl}/functions/v1/contact-submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: supabaseAnonKey,
+          Authorization: `Bearer ${supabaseAnonKey}`,
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Contact request failed");
+      }
+
+      form.reset();
+      setSent(true);
+    } catch {
+      setError("Не удалось отправить заявку. Попробуйте ещё раз или напишите в Telegram.");
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <>
@@ -35,13 +95,7 @@ function ContactsPage() {
 
       <div className="container-page py-16">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSent(true);
-            }}
-            className="card-soft card-static w-full p-6 md:p-10"
-          >
+          <form onSubmit={submitContact} className="card-soft card-static w-full p-6 md:p-10">
             {sent ? (
               <div className="py-10 text-center">
                 <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-success/10 text-success">
@@ -129,11 +183,17 @@ function ContactsPage() {
                     placeholder="Контекст, стадия бизнеса, ожидания"
                   />
                 </Field>
+                {error && (
+                  <div className="rounded-lg border border-destructive/20 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                    {error}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                  disabled={sending}
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
                 >
-                  Отправить заявку <Send className="h-4 w-4" />
+                  {sending ? "Отправляем..." : "Отправить заявку"} <Send className="h-4 w-4" />
                 </button>
                 <p className="text-xs text-muted-foreground">
                   Нажимая кнопку, вы соглашаетесь с{" "}

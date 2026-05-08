@@ -4,9 +4,14 @@ import { createRoot } from "react-dom/client";
 import { getRouter } from "./router";
 import "./styles.css";
 
-const router = getRouter({
-  history: createHashHistory(),
-});
+const isGitHubPages = window.location.hostname.endsWith("github.io");
+
+if (!isGitHubPages && window.location.hash.startsWith("#/")) {
+  const hashPath = window.location.hash.slice(1);
+  window.history.replaceState(null, "", hashPath || "/");
+}
+
+const router = getRouter(isGitHubPages ? { history: createHashHistory() } : undefined);
 
 const root = document.getElementById("root");
 
